@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+
+
+	<script>
+		
+		"use strict"
+		function summation(number_1, number_2){
+			return number_1 + number_2
+		}
+
+		function mult(number_1, number_2){
+			return number_1 * number_2
+		}	
+
+		function subtr(number_1, number_2){
+			return number_1 - number_2
+		}
+
+		function division(number_1, number_2){
+			if (number_2 == 0){
+				alert('Делить на ноль нельзя!');
+				number_2 = +prompt('Введити делитель не равный нулю: ');
+			}
+			return number_1 / number_2
+		}
+
+		// alert(summation(2, 5));
+		// alert(mult(5, 9));
+		// alert(subtr(25, 6));
+		// alert(division(40, 4));
+		// alert(division(36, 0));
+
+		function mathOperation(arg_1, agr_2, operation){
+
+			switch(operation){
+				case 'сложение' :
+					alert(summation(arg_1, agr_2));
+					break;
+				case 'умножение' :
+					alert(mult(arg_1, agr_2));			
+					break;	
+				case 'вычитание' :
+					alert(subtr(arg_1, agr_2));
+					break;
+				case 'деление' :
+					alert(division(arg_1, agr_2));
+					break;
+			}
+			
+		}
+
+		mathOperation(56, 0, 'деление');
+		mathOperation(47, 3, "сложение");
+
+	</script>
+</body>
+</html>
