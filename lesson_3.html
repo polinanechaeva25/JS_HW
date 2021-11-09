@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<script>
+		
+		'use strict'
+
+		//Задание №1
+
+		console.log('Задание №1')
+		console.log('')
+		for(let num = 0; num < 11; num++){
+			if(num == 0){
+				console.log(`${num} - это ноль`);
+			}else if(num % 2 == 0){
+				console.log(`${num} - это четное число`);
+			} else{
+			console.log(`${num} - это нечетное число`);
+			}
+		}
+
+		console.log('')
+
+		//Задание №2
+
+		console.log('Задание №2')
+		console.log('')
+		const post = {
+			author: "John", //вывести этот текст
+			postId: 23,
+			comments: [
+				{
+					userId: 10,
+					userName: "Alex",
+					text: "lorem ipsum",
+					rating: {
+							likes: 10,
+							dislikes: 2 //вывести это число
+							}
+				},
+				{
+					userId: 5, //вывести это число
+					userName: "Jane",
+					text: "lorem ipsum 2", //вывести этот текст
+					rating: {
+							likes: 3,
+							dislikes: 1
+							}
+				},
+			]
+		};
+		console.log(post.author)
+		console.log(post.comments[0].rating.dislikes)
+		console.log(post.comments[1].userId)
+		console.log(post.comments[1].text)
+
+		console.log('')
+		
+		//Задание №3
+
+		console.log('Задание №3')
+		console.log('')
+		const products = [
+					{
+						id: 3,
+						price: 200,
+					},
+					{
+						id: 4,
+						price: 900,
+					},
+					{
+						id: 1,
+						price: 1000,
+					},
+					];
+
+		products.forEach(element => element.price = element.price * 0.85)
+		for(let i = 0; i < products.length; i++){
+		console.log(products[i].price);
+		}
+
+		console.log('')
+		
+		//Задание №4
+
+		console.log('Задание №4')
+		console.log('')
+		const product = [
+					{
+						id: 3,
+						price: 127,
+						photos: [
+							"1.jpg",
+							"2.jpg",
+						]
+					},
+					{
+						id: 5,
+						price: 499,
+						photos: []
+					},
+					{
+						id: 10,
+						price: 26,
+						photos: [
+							"3.jpg"	
+						]
+					},
+					{
+						id: 8,
+						price: 78,
+					},
+				];
+		
+		console.log('Без использования filter:');
+		for(let idx = 0; idx < product.length; idx ++){
+			if(Boolean(product[idx].photos) == true && product[idx].photos.length !== 0){
+				console.log(product[idx]);				
+			}
+		}
+		console.log('С использованием filter:')
+		let result = product.filter(elem => (Boolean(elem.photos) == true && elem.photos.length !== 0))
+		console.log(result)
+
+		console.log('С использованием sort:')
+
+		product.sort(function (price_1, price_2){
+				if(price_1.price > price_2.price){
+					return 1
+				}else {
+					return -1
+				}
+
+		});
+		console.log(product)
+
+
+		console.log('')
+
+		//Задание №6
+		
+		console.log('Задание №6')
+		for(let i = ""; i.length < 21; i += 'x'){
+			console.log(i);
+		}
+	</script>
+</body>
+</html>
