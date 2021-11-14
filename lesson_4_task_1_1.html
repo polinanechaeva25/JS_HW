@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+
+
+	<script>
+		// ep5
+		function Product_1(name, price) {
+			this.name = name;
+			this.price = price;			
+		}
+
+		
+		Product_1.prototype.make25PercentDiscount = function(){
+			this.price = this.price * 0.75;	
+		}
+
+		let phone = new Product_1('Samsung', 3000);
+		console.log(phone.name, phone.price);
+		phone.make25PercentDiscount();
+		console.log(phone.name, phone.price);
+
+		// ep6
+		class Product_2 {
+
+			constructor(name, price){
+				this.name = name;
+				this.price = price;	
+			}
+
+			make25PercentDiscount_2(){
+				this.price = this.price * 0.75;					
+			}
+		}
+
+		let computer = new Product_2('Lenovo', 12000);
+		console.log(computer.name, computer.price);
+		computer.make25PercentDiscount_2();
+		console.log(computer.name, computer.price);
+	</script>
+</body>
+</html>
