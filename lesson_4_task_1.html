@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+
+<script>
+	class Numbers{
+		constructor(number){
+			this.number = number;
+			this.units = number % 10;
+			this.tens = Math.floor((number % 100) / 10) ;
+			this.hundreds = Math.floor(number / 100);
+		}
+	}
+
+
+	function create_obj(number) {
+		if(typeof number === 'number'){
+			if (!Number.isInteger(number)){
+				console.log('Число должно быть целым! Введите другое число!');
+				return
+			} else if(number < 0 || number > 999){
+				console.log('Число должно быть в диапазоне от 0 до 999! Введите другое число!');
+				return
+			}else{
+				let result = new Numbers(number);
+				return result
+			}
+		}else{
+			console.log('Вы ввели не число! Попробуйте еще раз!');
+			return
+		}
+	}
+		
+
+	result = create_obj('Hi')
+	result = create_obj(10.9)
+	result = create_obj(1001)
+	result = create_obj(148)
+	console.log(result.units)
+	console.log(result.tens)
+	console.log(result.hundreds)
+
+</script>
+
+</body>
+</html>

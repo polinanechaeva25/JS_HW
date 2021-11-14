@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+
+	<script>
+		
+		// ep5
+
+		function Post(author, text, date) {
+			this.author = author;
+			this.text = text;
+			this.date = date;
+		}
+
+		Post.prototype.edit = function(sometxt){
+			this.text = sometxt
+		}
+
+		function AttachedPost(author, text, date){
+			Post.call(this, author, text, date);
+			this.highlighted = false;
+		}
+
+		AttachedPost.prototype = Object.create(Post.prototype);
+		AttachedPost.constructor = AttachedPost;
+		AttachedPost.prototype.makeTextHighlighted = function(){
+			return this.highlighted = true
+		}
+
+		let post_1 = new Post('Marina', 'Hello, everyone', '14.11.2021');
+		console.log(post_1.author, post_1.text, post_1.date);
+		post_1.edit("I'm Marina");
+		console.log(post_1.text);
+
+		let post_2 = new AttachedPost('Anna', 'my text', '12.08.2020');
+		console.log(post_2.author, post_2.text, post_2.date, post_2.highlighted);
+		post_2.edit('my new txt');
+		console.log(post_2.text, post_2.highlighted);
+		post_2.makeTextHighlighted();
+		console.log(post_2.text, post_2.highlighted);
+
+		// ep6
+
+		class Post_new{
+
+			constructor(author, text, date){
+				this.author = author;
+				this.text = text;
+				this.date = date;
+			}
+
+			edit(sometxt){
+			this.text = sometxt
+			}
+		}
+
+		class AttachedPost_new extends Post{
+			constructor(author, text, date, highlighted){
+				super(author, text, date);
+				this.highlighted = false;
+			}
+
+			makeTextHighlighted(){
+			return this.highlighted = true
+			}
+		}
+
+		let new_post_1 = new Post_new('Julio', 'I am 22', '26.07.2015');
+		console.log(new_post_1.author, new_post_1.text, new_post_1.date);
+		new_post_1.edit('Hello!!!');
+		console.log(new_post_1.text);
+
+		let new_post_2 = new AttachedPost('Norman', 'Hi', '16.02.2013');
+		console.log(new_post_2.author, new_post_2.text, new_post_2.date, new_post_2.highlighted);
+		new_post_2.edit('Bye');
+		console.log(new_post_2.text, new_post_2.highlighted);
+		new_post_2.makeTextHighlighted();
+		console.log(new_post_2.text, new_post_2.highlighted);
+
+	</script>
+</body>
+</html>
